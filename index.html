@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>HackerName Generator</title>
+	<style>
+		::-webkit-scrollbar {
+			width: 10px;
+		}
+		::-webkit-scrollbar-track {
+			background: #f1f1f1;
+		}
+		::-webkit-scrollbar-thumb {
+			background: #888;
+		}
+		::-webkit-scrollbar-thumb:hover {
+			background: #555; 
+		}
+		*{
+			font-family: "ubuntu";
+		}
+		body{
+			background-color: rgb(156, 143, 167);
+		}
+		header{
+			width: 70%;
+			display: block;
+			cursor: pointer;
+			margin: auto;
+			padding: 10px;
+			text-align: center;
+			background-color: rgb(25,30,55);
+			border:2px solid transparent;
+			border-radius: 10px;
+			box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(20,20,20,10);
+		}
+		header h1{
+			transition: 0.5s linear;
+			margin: 0;
+		}
+		section{
+			width: 70%;
+			margin: auto;
+			margin-top: 50px;
+			padding: 10px;
+			text-align: center;
+			background-color: rgb(25,30,55);
+			border:2px solid transparent;
+			border-radius: 10px;
+			box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(20,20,20,10);
+		}
+		section b{
+			display: block;
+			text-align: center;
+			color: white;
+			font-size: 30px;
+		}
+		section input[type="text"] {
+			width: 90%;
+			margin-top: 25px;
+			outline: none;
+			border-radius: 5px;
+			border: 0;
+			padding: 10px;
+		}
+		section textarea{
+			font-size: 15px;
+			width: 90%;
+			margin-top: 25px;
+			outline: none;
+			border-radius: 5px;
+			border: 0;
+			padding: 10px;
+			max-width: 90%;
+			min-width: 90%;
+		}
+		section button{
+			color: rgb(20,20,20);
+			cursor: pointer;
+			font-size: 20px;
+			font-weight: bold;
+			text-align: center;
+			outline: none;
+			border-radius: 5px;
+			border: 0;
+			padding: 10px;
+			width: 50%;
+			margin-top: 25px;
+			margin-bottom: 15px;
+			background-color: rgb(48, 161, 104);
+			box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 4px rgba(20,20,20,10);
+			transition: 0.5s;
+		}
+		section button:hover{
+			width: 60%;
+			color: white;
+			background-color: tomato;
+		}
+		task {
+			width: 70%;
+			display: block;
+			margin: auto;
+			margin-top: 10px;
+			padding: 10px;
+			text-align: center;
+			background-color: rgb(25,30,55);
+			border:2px solid transparent;
+			border-radius: 5px;
+			box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(20,20,20,10);
+		}
+		task span{
+			color: white;
+			text-align: center;
+		}
+		footer{
+			width: 70%;
+			display: block;
+			margin: auto;
+			margin-top: 50px;
+			padding: 5px;
+			text-align: center;
+			background-color: rgb(25,30,55);
+			border:2px solid transparent;
+			border-radius: 5px;
+			box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(20,20,20,10);
+			text-shadow: 2px 2px 4px black;
+		}
+		footer a{
+			text-decoration: none;
+			color: pink;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1><font color="Green">Hacker Name Generator</h1></font>
+	</header>
+    <task>
+        <span id="tasks"> Your Generated Name Will Display Here</span>
+    </task>
+	<section>
+		<form id="myForm">
+			<b>Enter A Random Name</b>
+			<input type="text" placeholder="Enter Name" id="name">
+			<button type="button" onclick="generate()">Generate</button>
+		</form>
+	</section>
+
+	<script>
+		function generate(){
+			const naming_convection={
+			    "a": "4",
+			    "b": "B",
+			    "c": "C",
+			    "d": "D",
+			    "e": "3",
+			    "f": "F",
+			    "g": "6",
+			    "h": "H",
+			    "i": "1",
+			    "j": "J",
+			    "k": "K",
+			    "l": "L",
+			    "m": "M",
+			    "n": "N",
+			    "o": "0",
+			    "p": "P",
+			    "q": "Q",
+			    "r": "R",
+			    "s": "5",
+			    "t": "7",
+			    "u": "U",
+			    "v": "V",
+			    "w": "W",
+			    "x": "X",
+			    "y": "Y",
+			    "z": "Z"
+			}
+			var name=document.getElementById("name").value.toLowerCase()
+			for (const [key, value] of Object.entries(naming_convection)) {
+				name=name.replace(key,value)
+			}
+			document.getElementById("tasks").textContent="Your Generated Name : "+name.toUpperCase()
+
+		}
+	</script>
+	<script>
+		var form = document.getElementById("myForm");
+		function handleForm(event) { event.preventDefault(); } 
+		form.addEventListener('submit', handleForm);
+	</script>
+    <script>
+        (function titleScroll(text) {
+                        document.title = text;
+                        setTimeout(function () {
+                            titleScroll(text.substr(1) + text.substr(0, 1));
+                        }, 250);
+                    })('Hacker Name Generator - ');
+                </script>
+</body>
+</html>
